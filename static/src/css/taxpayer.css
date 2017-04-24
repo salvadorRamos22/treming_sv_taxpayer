@@ -1,0 +1,7 @@
+textarea {
+	resize: none;
+}
+
+div.oe_button_box button:nth-child(3){
+	display:none	
+}
