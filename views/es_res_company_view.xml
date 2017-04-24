@@ -7,29 +7,33 @@
 			<field name="model">res.company</field>
 			<field name="inherit_id" ref="base.view_company_form" />
 			<field name="arch" type="xml">
-				<field name="phone" position="before">
-					<field name="razon_social" string="Razón Social" />
+				<field name="partner_id" position="before">
+					<field name="razon_social" string="Business name" />
 				</field>
 				<field name="phone" position="before">
-					<!-- <address t-field="partner_id" t-field-options='{"widget":"contact", 
+					<!-- <address t-field="partner_id" t-field-options='{"widget":"contact",
 						"fields":["giro"]}'></address> -->
-					<field name="giro" string="Giro" placeholder="p.e. Venta de Alimentos y Bebidas" />
+					<field name="giro" string="Turn" placeholder="p.e. Venta de Alimentos y Bebidas" />
 				</field>
 				<field name="vat" position="replace">
-					<!-- <field name="num_comprobante_cfx" string="Num. CCF:x" invisible="1" 
+					<!-- <field name="num_comprobante_cfx" string="Num. CCF:x" invisible="1"
 						reonly="True"/> -->
 				</field>
-				<field name="company_registry" position="before">
-					<field name="nit_c" string="NIT:" />
+				<field name="partner_id" position="before">
+					<field name="nit_c" string="NIT" />
 				</field>
-				<field name="company_registry" position="attributes">
-					<attribute name="string">NRC:</attribute>
+
+				<field name="company_registry" position="replace">
+
+				</field>
+				<field name="phone" position="before">
+					<field name="company_registry" string="NRC" />
 				</field>
 				<xpath expr="/form/sheet/notebook/page[1]" position="before">
-					<page string="Documentos Fiscales">
+					<page string="Fiscal Documents">
 						<group>
-							<field name="msj_facturas" string="Mensaje General de Documentos" placeholder="Introduzca aqui el mensaje que aparecera en todos los documentos impresos." />
-							<field name="tipo_imp" />
+							<field name="msj_facturas" string="General Message of Documents" placeholder="Enter here the message that will appear on all printed documents." />
+							<field name="tipo_imp" string="Print Mode" />
 						</group>
 					</page>
 				</xpath>

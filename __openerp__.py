@@ -23,6 +23,7 @@
 
     # always loaded
     'data': [
+        'data/datos.xml',
         'views/es_res_partner_view.xml',
         'views/es_res_company_view.xml',
     ],    
