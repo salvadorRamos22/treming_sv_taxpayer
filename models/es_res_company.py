@@ -9,7 +9,7 @@ class ESRestCompany(models.Model):
     _inherit = 'res.company'
 
     razon_social = fields.Char(help="Razon Social")
-    giro = fields.Char(help="Giro")
+    giro = fields.Text(help="Giro")
     nit_c = fields.Char(help="Número de Identificación Tributaria")
     msj_facturas = fields.Text(help="Mensaje General")
     tipo_imp = fields.Selection([("papel", "Papel"), ("pantalla", "Pantalla")], string="Modalidad de Impresión", 
