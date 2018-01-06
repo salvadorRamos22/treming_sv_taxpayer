@@ -1,2 +1,2 @@
-import es_res_partner
-import es_res_company
+from . import es_res_partner
+from . import es_res_company

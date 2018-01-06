@@ -33,7 +33,7 @@ class ESRestPartner(models.Model):
         for record in self:
             # Si Email es no vacio, entonces
                 if record.email != False:
-                    print str("")
+                    print ("")
 #                     if re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", record.email) != None:
 #                         return True
 #                     else:
@@ -91,7 +91,7 @@ class ESRestPartner(models.Model):
                 valor = {'company_registry': '' + str(self.nrc_sv)}
                 model.write(self.env.cr, self.env.uid, ids, valor, context=self.env.context)
         except:
-            print str("Manejando excepcion")
+            print("Manejando excepcion")
             
     @api.multi
     def totalex(self):
