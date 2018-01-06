@@ -3,7 +3,7 @@
     'name': "Contribuyentes de El Salvador",
 
     'summary': """
-        Modulo para la adición de campos tributarios de El Salvador""",
+        Modulo para la adicion de campos tributarios de El Salvador""",
 
     'description': """
         Adiciona campos tributarios de El Salvador al formulario de clientes

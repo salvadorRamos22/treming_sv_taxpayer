@@ -12,12 +12,12 @@ class ESRestPartner(models.Model):
     _inherit = 'res.partner'
 
     razon_social = fields.Char(help="Razon Social")
-    dui = fields.Char(help="Documento Único de Identidad")
+    dui = fields.Char(help="Documento Unico de Identidad")
     pasaporte = fields.Char(help="Pasaporte")
     razon_social = fields.Char(help="Razon Social")
     giro = fields.Text(help="Giro")
-    nit_sv = fields.Char(help="Número de Identificación Tributaria")
-    nrc_sv = fields.Char(help="Número de Registro de Contribuyente")
+    nit_sv = fields.Char(help="Numero de Identificacion Tributaria")
+    nrc_sv = fields.Char(help="Numero de Registro de Contribuyente")
     street = fields.Text()
     total_invoice = fields.Float(digits=(12, 2),required=False,readonly=True)
     total_invoicex = fields.Float(digits=(12, 2),required=False,string="Total de Facturas", compute='totalex', store=False)
@@ -47,7 +47,7 @@ class ESRestPartner(models.Model):
                 if re.match("^\d{4}-\d{6}-\d{3}-\d{1}$", record.nit_sv) != None:
                     return True
                 else:
-                    raise ValidationError("El NIT ingresado tiene un formato inválido")
+                    raise ValidationError("El NIT ingresado tiene un formato invalido")
                 
     @api.constrains("dui")
     def ValidarDUI(self):
@@ -57,7 +57,7 @@ class ESRestPartner(models.Model):
                 if re.match("^\d{8}-\d{1}$", record.dui) != None:
                     return True
                 else:
-                    raise ValidationError("El DUI ingresado tiene un formato inválido")
+                    raise ValidationError("El DUI ingresado tiene un formato invalido")
 
     #Defino validacion para que razon social sea un campo obligatorio cuando se este guardando una empresa
     @api.constrains("razon_social")
@@ -65,7 +65,7 @@ class ESRestPartner(models.Model):
         for record in self:
             # Si es una compañia la razon social no puede quedar vacia
             if record.razon_social == False and record.is_company == True:
-                raise ValidationError("La razón social es obligatoria")
+                raise ValidationError("La razon social es obligatoria")
 
     @api.onchange('giro', 'razon_social', 'nit_sv', 'nrc_sv')  # El metodo onchage nos permite desencadenar una serie de instrucciones cuando los campos que ha sido pasado por paremetros son modificados en la vista.
     def _check_change(self):
