@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from openerp import api, fields, models
-from openerp.exceptions import Warning
-from openerp.tools.translate import _
-import openerp.addons.decimal_precision as dp
+from odoo import api, fields, models
+from odoo.exceptions import Warning
+from odoo.tools.translate import _
+import odoo.addons.decimal_precision as dp
 import re
-from openerp.exceptions import ValidationError
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+import sys
+from odoo.exceptions import ValidationError
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 class ESRestPartner(models.Model):
     _inherit = 'res.partner'
@@ -22,6 +23,9 @@ class ESRestPartner(models.Model):
     total_invoice = fields.Float(digits=(12, 2),required=False,readonly=True)
     total_invoicex = fields.Float(digits=(12, 2),required=False,string="Total de Facturas", compute='totalex', store=False)
 
+    def check_run_version(self):
+        raise ValidationError(sys.version)
+
     # Esto se hace para que el valor que este seleccionado por defecto sea individual y no compañia
     @api.model
     def _get_default_value(self):
@@ -33,11 +37,7 @@ class ESRestPartner(models.Model):
         for record in self:
             # Si Email es no vacio, entonces
                 if record.email != False:
-                    print ("")
-#                     if re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", record.email) != None:
-#                         return True
-#                     else:
-#                         raise ValidationError("El Email ingresado tiene un formato inválido")
+                    print("")
 
     @api.constrains("nit_sv")
     def ValidarNIT(self):

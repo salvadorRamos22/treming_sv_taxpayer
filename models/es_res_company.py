@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from openerp import api, fields, models
-from openerp.exceptions import Warning
-from openerp.tools.translate import _
-from openerp.exceptions import ValidationError
+from odoo import api, fields, models
+from odoo.exceptions import Warning
+from odoo.tools.translate import _
+from odoo.exceptions import ValidationError
 
 class ESRestCompany(models.Model):
     _inherit = 'res.company'
