@@ -23,7 +23,7 @@ class ESRestPartner(models.Model):
     total_invoice = fields.Float(digits=(12, 2),required=False,readonly=True)
     total_invoicex = fields.Float(digits=(12, 2),required=False,string="Total de Facturas", compute='totalex', store=False)
 
-    def check_run_version(self):
+    def worded(self):
         raise ValidationError(sys.version)
 
     # Esto se hace para que el valor que este seleccionado por defecto sea individual y no compañia
