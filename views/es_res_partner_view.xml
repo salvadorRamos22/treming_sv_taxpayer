@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <template id="assets_backend" name="taxpayer assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
                 <!-- Este archivo contiene el CSS necesario para evitar que los controles de textarea sean redimensionados -->
                 <link rel="stylesheet" href="/treming_sv_taxpayer/static/src/css/taxpayer.css"/>
             </xpath>
-
         </template>
+
         <!-- Extend form -->
         <record model="ir.ui.view" id="view_form_es_res_partner_inherited">
             <field name="name">res.partner.form.es</field>
@@ -92,4 +92,4 @@
             </field>
         </record>
     </data>
-</openerp>
+</odoo>
